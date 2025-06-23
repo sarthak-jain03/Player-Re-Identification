@@ -1,0 +1,45 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# MacOS & Linux
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Model weights & video data
+model/
+videos/
+output/
+*.mp4
+*.avi
+*.mov
+
+# Checkpoints or intermediate files
+*.pth
+*.pt
+*.weights
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+
+# Misc
+*.bak
