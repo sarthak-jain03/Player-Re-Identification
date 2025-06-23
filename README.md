@@ -57,8 +57,7 @@ Dependencies used:
 
 - Place your video in the videos/ folder.
 
-- Download the provided YOLOv11 model and place it inside the model/ directory.
-Since the yolo model is very large and cannot be pushed to github, download the model from the link below and place it inside the model/ directory.
+- Since the yolo model is very large and cannot be pushed to github, it will automatically download the model from my google drive link and it will directly be placed into the model/ directory.
 https://drive.google.com/file/d/1vk_YNbDv270ue4AVDzJaTrAljRNscvJu/view?usp=sharing
 
 

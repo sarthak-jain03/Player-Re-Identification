@@ -1,10 +1,22 @@
+import os
 import cv2
+import gdown
 from ultralytics import YOLO
 from deep_sort_realtime.deepsort_tracker import DeepSort
 
-# Initialize model and tracker
-yolo = YOLO("model/yolo.pt")  # Replace with your YOLOv11 model file
+model_path = "model/yolo.pt"
+file_id = "1vk_YNbDv270ue4AVDzJaTrAljRNscvJu"
+gdrive_url = f"https://drive.google.com/uc?id={file_id}"
+
+if not os.path.exists(model_path):
+    os.makedirs("model", exist_ok=True)
+    print("Downloading YOLO model from Google Drive...")
+    gdown.download(gdrive_url, model_path, quiet=False)
+
+
+yolo = YOLO(model_path)
 tracker = DeepSort(max_age=30, n_init=3, nms_max_overlap=1.0, max_cosine_distance=0.4)
+
 
 # Open video
 video_path = "videos/15sec_input_720p.mp4"
@@ -12,7 +24,24 @@ cap = cv2.VideoCapture(video_path)
 frame_width, frame_height = int(cap.get(3)), int(cap.get(4))
 fps = cap.get(cv2.CAP_PROP_FPS)
 
+
+import random
+
+id_colors = {}
+
+def get_color_for_id(track_id):
+    if track_id not in id_colors:
+        random.seed(track_id)
+        id_colors[track_id] = (
+            random.randint(0, 255),
+            random.randint(0, 255),
+            random.randint(0, 255)
+        )
+    return id_colors[track_id]
+
+
 # Video writer
+
 out = cv2.VideoWriter("output/reid_output.mp4",
                       cv2.VideoWriter_fourcc(*'mp4v'),
                       fps, (frame_width, frame_height))
@@ -39,8 +68,15 @@ while cap.isOpened():
             continue
         track_id = track.track_id
         l, t, w, h = track.to_ltrb()
-        cv2.rectangle(frame, (int(l), int(t)), (int(l + w), int(t + h)), (0, 255, 0), 2)
-        cv2.putText(frame, f"ID {track_id}", (int(l), int(t) - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
+
+        color = get_color_for_id(track_id)
+
+        # Draw box with unique color
+        cv2.rectangle(frame, (int(l), int(t)), (int(l + w), int(t + h)), color, 1)
+
+        # ID label with matching color
+        cv2.putText(frame, f"ID {track_id}", (int(l), int(t) - 5),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.4, color, 1)
 
     out.write(frame)
     frame_id += 1
