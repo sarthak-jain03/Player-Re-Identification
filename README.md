@@ -1,4 +1,4 @@
-# Player Re-Identification in Sports Footage
+# Player Re-Identification 
 
 A real-time computer vision system to detect, track, and assign consistent IDs to football players using a single video feed.
 
