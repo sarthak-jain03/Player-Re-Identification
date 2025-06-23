@@ -87,4 +87,4 @@ If the output video is blank:
 
 
 ## License
-This project is licensed under the [MIT License](LICENSE.md) – see the LICENSE.md file for details.
+This project is licensed under the [License](LICENSE.md) – see the LICENSE.md file for details.
