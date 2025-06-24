@@ -78,7 +78,7 @@ Player-Re-Identification/
 ├── README.md                   # Project overview, usage guide, and setup instructions
 ├── report.md                   # Brief report on methodology, techniques, and outcomes
 ├── requirements.txt            # All Python dependencies
-├── LICENSE.md                  # MIT License file
+├── LICENSE.md                  # License file
 ├── .gitignore                  # Files/folders to be ignored by Git
 
 ```
