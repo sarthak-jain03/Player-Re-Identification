@@ -61,6 +61,31 @@ Dependencies used:
 https://drive.google.com/file/d/1vk_YNbDv270ue4AVDzJaTrAljRNscvJu/view?usp=sharing
 
 
+## Directory Structure
+```
+
+Player-Re-Identification/
+├── model/                      # YOLO model directory
+│   └── yolo.pt                 # YOLOv11 weights (Automatically downloaded from Google Drive)
+│
+├── videos/                     # Input videos for tracking
+│   └── 15sec\_input\_720p.mp4    # Sample input video
+│
+├── output/                     # Output folder for generated videos
+│   └── reid\_output.mp4         # Tracked output video
+│
+├── main.py                     # Main Python script: detection + DeepSORT tracking
+├── README.md                   # Project overview, usage guide, and setup instructions
+├── report.md                   # Brief report on methodology, techniques, and outcomes
+├── requirements.txt            # All Python dependencies
+├── LICENSE.md                  # MIT License file
+├── .gitignore                  # Files/folders to be ignored by Git
+
+```
+
+---
+
+
 ## Executing program
 Run the program using:
 ```bash
