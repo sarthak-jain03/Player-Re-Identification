@@ -76,7 +76,7 @@ Player-Re-Identification/
 │
 ├── main.py                     # Main Python script: detection + DeepSORT tracking
 ├── README.md                   # Project overview, usage guide, and setup instructions
-├── report.md                   # Brief report on methodology, techniques, and outcomes
+├── Report.md                   # Brief report on methodology, techniques, and outcomes
 ├── requirements.txt            # All Python dependencies
 ├── LICENSE.md                  # License file
 ├── .gitignore                  # Files/folders to be ignored by Git
